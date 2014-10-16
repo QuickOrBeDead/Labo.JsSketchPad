@@ -2,60 +2,63 @@
 (function (SketchPad, window) {
 
     SketchPad.SketchPadApp = (function (window) {
+        var mouseDown, pen, paper;
         
         function SketchPadApp() {
-            this.mouseDown = false;
+            mouseDown = false;
         }
 
         SketchPadApp.prototype.onMouseDown = function () {
-            this.mouseDown = true;
+            mouseDown = true;
         };
 
         SketchPadApp.prototype.onMouseUp = function () {
-            this.mouseDown = false;
-            this.paper.resetLastPositions();
+            mouseDown = false;
+            if (pen) {
+                pen.onMouseUp();
+            }
         };
         
         SketchPadApp.prototype.onMouseMove = function (e) {
             var mousePosition = SketchPad.MouseTracker.getMousePosition(e);
-            this.pen.setPosition(mousePosition.x, mousePosition.y);
+            pen.setPosition(mousePosition.x, mousePosition.y);
 
-            if (this.mouseDown) {
-                this.pen.draw(this.paper);
+            if (mouseDown) {
+                pen.draw(paper);
             }
         };
         
         SketchPadApp.prototype.init = function (paperContainerId, width, height) {
-            this.paper = new SketchPad.Paper(paperContainerId, width, height);
-            this.pen = new SketchPad.Pen(new SketchPad.Color(0, 0, 0, 255), 3);
+            paper = new SketchPad.Paper(paperContainerId, width, height);
+            pen = new SketchPad.Pen(new SketchPad.Color(0, 0, 0, 255), 3);
 
             var that = this;
             window.addEventListener("mouseup", function() {
                 that.onMouseUp();
             });
-            this.paper.addEventListener("mousedown", function() {
+            paper.addEventListener("mousedown", function() {
                 that.onMouseDown();
             });
-            this.paper.addEventListener("mousemove", function(e) {
+            paper.addEventListener("mousemove", function(e) {
                 that.onMouseMove(e);
             });
         };
 
         SketchPadApp.prototype.setColor = function (colorHex) {
-            if (this.pen) {
-                this.pen.setColor(SketchPad.Color.fromHex(colorHex));
+            if (pen) {
+                pen.setColor(SketchPad.Color.fromHex(colorHex));
             }
         };
         
         SketchPadApp.prototype.setSize = function (size) {
-            if (this.pen) {
-                this.pen.setSize(size);
+            if (pen) {
+                pen.setSize(size);
             }
         };
 
         SketchPadApp.prototype.clearPaper = function() {
-            if (this.paper) {
-                this.paper.clear();
+            if (paper) {
+                paper.clear();
             }
         };
 
