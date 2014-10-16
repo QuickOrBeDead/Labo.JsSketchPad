@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        .sketch-canvas {
+             display:block;
+             cursor:crosshair;
+            -ms-border-radius: 2px;
+            border-radius: 2px;
+        }
+
+        #sketchpadapp {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+    <body>
+        <div id="sketchpadapp">
+            <div id="menu">
+                <input id="clear-sketchpad" type="button" value="Clear Sketchpad" />
+                <div id="draw-sizes">
+                    <input type="button" value="0.5" />
+                    <input type="button" value="1" />
+                    <input type="button" value="2" />
+                    <input type="button" value="3" />
+                    <input type="button" value="4" />
+                    <input type="button" value="5" />
+                    <input type="button" value="7" />
+                    <input type="button" value="9" />
+                    <input type="button" value="16" />
+                    <input type="button" value="32" />
+                    <input type="button" value="64" />
+                </div>
+                <div id="draw-colors">
+                    <input type="button" value="Red" data-val="#ff0000" />
+                    <input type="button" value="Purple" data-val="#cb3594" />
+                    <input type="button" value="Green" data-val="#659b41" />
+                    <input type="button" value="Blue" data-val="#0000ff" />
+                    <input type="button" value="Yellow" data-val="#ffcf33" />
+                    <input type="button" value="Brown" data-val="#986928" />
+                    <input type="button" value="Black" data-val="#fff" />
+                    <input type="button" value="White" data-val="#ffffff" />
+                </div>
+            </div>
+            <div id="sketchpad"></div>
+        </div>
+        
+        <script src="scripts/jquery.min.js"></script>
+        <script src="scripts/mousetracker.js"></script>
+        <script src="scripts/color.js"></script>
+        <script src="scripts/paper.js"></script>
+        <script src="scripts/pen.js"></script>
+        <script src="scripts/sketchpad.js"></script>
+        <script>
+            $(function() {
+                var sketchPad = new SketchPad.SketchPadApp();
+                sketchPad.init("sketchpad", 800, 600);
+
+                $("#clear-sketchpad").click(function(e) {
+                    e.preventDefault();
+
+                    sketchPad.clearPaper();
+                });
+
+                $("#draw-sizes input").click(function(e) {
+                    e.preventDefault();
+
+                    sketchPad.setSize(parseFloat($(this).val(), 10));
+                });
+                
+                $("#draw-colors input").click(function (e) {
+                    e.preventDefault();
+
+                    sketchPad.setColor($(this).data("val"));
+                });
+            });
+        </script>
+    </body>
+</html>

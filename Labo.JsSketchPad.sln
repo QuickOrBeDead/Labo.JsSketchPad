@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labo.JsSketchPad.Web", "Labo.JsSketchPad.Web\Labo.JsSketchPad.Web.csproj", "{8DC3323A-BD3F-49A4-95D1-345E3287591B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labo.JsSketchPad.Web.TS", "Labo.JsSketchPad.Web.TS\Labo.JsSketchPad.Web.TS.csproj", "{810589C8-2405-46C4-AE61-D78D6446D3BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DC3323A-BD3F-49A4-95D1-345E3287591B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC3323A-BD3F-49A4-95D1-345E3287591B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC3323A-BD3F-49A4-95D1-345E3287591B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC3323A-BD3F-49A4-95D1-345E3287591B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810589C8-2405-46C4-AE61-D78D6446D3BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810589C8-2405-46C4-AE61-D78D6446D3BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810589C8-2405-46C4-AE61-D78D6446D3BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810589C8-2405-46C4-AE61-D78D6446D3BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

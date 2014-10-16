@@ -1,0 +1,8 @@
+﻿save as png
+undo
+redo
+sizes
+colors
+record / animate
+pencils
+eraser
