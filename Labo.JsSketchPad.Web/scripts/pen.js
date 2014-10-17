@@ -28,15 +28,15 @@
         Pen.prototype.draw = function (paper) {
             // If lastX is not set, set lastX and lastY to the current position 
             if (lastX === -1) {
-                lastX = x;
-                lastY = y;
+                lastX = this.x;
+                lastY = this.y;
             }
 
             SketchPad.Painter.drawLine(paper.ctx, lastX, lastY, this.x, this.y, this.size, this.color, "round", "round");
             
             // Update the last position to reference the current position
-            lastX = x;
-            lastY = y;
+            lastX = this.x;
+            lastY = this.y;
         };
 
         Pen.prototype.onMouseUp = function() {
@@ -57,6 +57,6 @@
         };
         
         return Marker;
-    })(Pen);
+    })(SketchPad.Pen);
 
 })(SketchPad || (SketchPad = {}));

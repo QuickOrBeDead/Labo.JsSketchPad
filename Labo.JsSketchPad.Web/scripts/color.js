@@ -2,6 +2,10 @@
 (function (SketchPad) {
     
     SketchPad.Color = (function () {
+        var red = new Color(255, 0, 0, 255);
+        var green = new Color(0, 255, 0, 255);
+        var blue = new Color(0, 0, 255, 255);
+
         function Color(r, g, b, a) {
             this.r = r;
             this.g = g;
@@ -12,6 +16,10 @@
         Color.prototype.getRgba = function() {
             return "rgba(" + this.r + "," + this.g + "," + this.b + "," + (this.a / 255) + ")";
         };
+
+        Color.Red = red;
+        Color.Green = green;
+        Color.Blue = blue;
 
         Color.fromHex = function (hexColor, alpha) {
             // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")

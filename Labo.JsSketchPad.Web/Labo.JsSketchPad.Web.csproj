@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="scripts\color.js" />
+    <Content Include="scripts\extend.js" />
     <Content Include="scripts\jquery.min.js" />
     <Content Include="scripts\mousetracker.js" />
     <Content Include="scripts\painter.js" />
